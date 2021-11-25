@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_DESC">
+		<Text>WMP - Tradition finisher dummy</Text>
+	</Row>
+	<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_TEXT">
+		<Text>WMP - Tradition finisher dummy</Text>
+	</Row>
+	<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_STRATEGY">
+		<Text>WMP - Tradition finisher dummy</Text>
+	</Row>
+	<Row Tag="TXT_KEY_PROMOTION_WMP_PLUNDERER">
+		<Text>Plunderer</Text>
+	</Row>
+	<Row Tag="TXT_KEY_PROMOTION_WMP_PLUNDERER_HELP">
+		<Text>Gain XP from pillaging</Text>
+	</Row>
+	<Row Tag="TXT_KEY_PROMOTION_WMP_MILITARY_ADVISOR">
+		<Text>Military Advisor</Text>
+	</Row>
+	<Row Tag="TXT_KEY_PROMOTION_WMP_MILITARY_ADVISOR_HELP">
+		<Text>When at war, gain great people points and XP when in allied city-state territory</Text>
+	</Row>
+</GameData>

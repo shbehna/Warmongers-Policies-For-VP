@@ -1,0 +1,31 @@
+local iBonusXP = 10
+
+-- Ceremony - Units purchased with gold or faith start with extra XP. 
+function Ceremony_OnPurchaseAddXP(iPlayer, iCity, iUnit, bGold, bFaith) 
+	local pPlayer = Players[iPlayer]
+	local pCity = pPlayer:GetCityByID(iCity)
+
+	if not pCity:IsHasBuilding(eBuildingPalaceAstrologer) then return end
+
+	if bGold or bFaith then
+		local pUnit = pPlayer:GetUnitByID(iUnit)
+			
+		pUnit:ChangeExperience(math.floor(iBonusXP * fGameSpeedModifier), -1, 1)
+	end
+end
+
+GameEvents.CityTrained.Add(Ceremony_OnPurchaseAddXP)
+
+
+------------------------------------------------
+-- Finisher (POLICY_TRADITION_FINISHER)
+------------------------------------------------
+
+-- Add dummy building for extra supply on raze.
+INSERT INTO BuildingClasses 	
+			(Type,													DefaultBuilding,						NoLimit)
+VALUES		('BUILDINGCLASS_WMP_TRADITION_FINISHER_DUMMY',			'BUILDING_WMP_TRADITION_FINISHER_DUMMY',			1);
+
+INSERT INTO Buildings 	
+			(Type,											BuildingClass,										Description,									 			Civilopedia, 												Strategy, 														ArtDefineTag, 				CitySupplyFlat, GoldMaintenance,	Cost,	FaithCost,	GreatWorkCount, NeverCapture,	NukeImmune, ConquestProb,	HurryCostModifier,	IconAtlas,			PortraitIndex)
+VALUES		('BUILDING_WMP_TRADITION_FINISHER_DUMMY',		'BUILDINGCLASS_WMP_TRADITION_FINISHER_DUMMY',		'TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_DESC',		'TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_TEXT',		'TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_STRATEGY',		'ART_DEF_BUILDING_GARDEN', 	2, 				0,					-1,		-1,			-1,				1,				1,			0,				-1,					'CIV_COLOR_ATLAS',	0);
