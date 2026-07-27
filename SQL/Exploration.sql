@@ -1,12 +1,12 @@
 -- Remove monopoly bonuses (moved to commerce)
 
 UPDATE Policies
-SET MonopolyModFlat = '0'
-WHERE Type = 'POLICY_NAVAL_TRADITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_POLICIES' AND Value= 1 );
+SET MonopolyModFlat = 0
+WHERE Type = 'POLICY_NAVAL_TRADITION';
 
 UPDATE Policies
-SET MonopolyModPercent = '0'
-WHERE Type = 'POLICY_NAVAL_TRADITION' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_POLICIES' AND Value= 1 );
+SET MonopolyModPercent = 0
+WHERE Type = 'POLICY_NAVAL_TRADITION';
 
 -- Add culture when training units
 INSERT INTO BuildingClasses 	

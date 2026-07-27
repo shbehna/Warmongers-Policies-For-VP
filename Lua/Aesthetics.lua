@@ -24,11 +24,12 @@ function FineArts_OnGreatWorkCreated(playerID, unitID, greatWorkID)
 end
 
 function IsAtWar(pPlayer)
+    local playerID = pPlayer:GetID()
     local iTeam = pPlayer:GetTeam()
     local pTeam = Teams[iTeam]
     local bIsAtWar = false
-    for i = 0, GameDefines.MAX_CIV_PLAYERS - 1 do 
-        if i ~= playerID then 
+    for i = 0, GameDefines.MAX_CIV_PLAYERS - 1 do
+        if i ~= playerID then
             local pOtherPlayer = Players[i]
             if pOtherPlayer:IsAlive() and not pOtherPlayer:IsBarbarian() and not pOtherPlayer:IsMinorCiv() then 
                 local iOtherTeam = pOtherPlayer:GetTeam()

@@ -120,22 +120,22 @@ function SetPopBuilding(iOldOwner, bIsCapital, iX, iY, iNewOwner, iPop, bConques
 	if not pPlayer:HasPolicy(GameInfoTypes.POLICY_LANDED_ELITE) then return end
 
  	local pCity = Map.GetPlot(iX, iY):GetPlotCity()
-	pCity:SetNumRealBuilding(GameInfoTypes.BUILDINGCLASS_WMP_TRADITION_DUMMY_2, pCity:GetPopulation())
+	pCity:SetNumRealBuilding(GameInfoTypes.BUILDING_WMP_TRADITION_DUMMY_2, pCity:GetPopulation())
 end
 GameEvents.CityCaptureComplete.Add(SetPopBuilding)
 
 -- Instant yields on city raze
 function BonusOnRaze(hexPos, iOldOwner, cityID, iNewOwner)
-	local pPlayer = Players[iOldOwner]
+	local pPlayer = Players[iNewOwner]
 	local pCapital = pPlayer:GetCapitalCity()
-	
-	if pPlayer:HasPolicy(GameInfoTypes.POLICY_LANDED_ELITE) then
-		local pCapitalX, pCapitalY, pCapitalID = pCapital:GetX(), pCapital:GetY(), pCapital:GetID()	
-		local iEraModifier = math.max(1, pPlayer:GetCurrentEra())
-		local fGameSpeedModifier = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].GoldPercent / 100
 
-		local pCity = pPlayer:GetCityByID(iCity)
-		local iRazePop = pCity:GetNumRealBuilding(GameInfoTypes.BUILDINGCLASS_WMP_TRADITION_DUMMY_2)
+	if pPlayer:HasPolicy(GameInfoTypes.POLICY_LANDED_ELITE) then
+		local pCapitalX, pCapitalY, pCapitalID = pCapital:GetX(), pCapital:GetY(), pCapital:GetID()
+		local iEraModifier = math.max(1, pPlayer:GetCurrentEra())
+		local fGameSpeedModifier = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].InstantYieldPercent / 100
+
+		local pCity = Players[iOldOwner]:GetCityByID(cityID)
+		local iRazePop = pCity:GetNumRealBuilding(GameInfoTypes.BUILDING_WMP_TRADITION_DUMMY_2)
 		local iGain = 25 * fGameSpeedModifier * iRazePop
 
 		pCapital:ChangeFood(iGain)

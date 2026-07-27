@@ -11,19 +11,8 @@ include("FLuaVector.lua")
 
 -- Extra XP when purchasing units
 
--- check XP scaling
-local bXPScaling = true -- default VP
-
-for t in GameInfo.CustomModOptions { Name = "BALANCE_CORE_SCALING_XP" } do
-	bXPScaling = (t.Value == 1)
-end
-
--- acquire game speed modifier
-local fGameSpeedModifier2 = 1.0
-
-if bXPScaling then
-	fGameSpeedModifier2 = GameInfo.GameSpeeds[Game.GetGameSpeedType()].TrainPercent / 100
-end
+-- acquire game speed modifier (XP scaling is always active in VP v5)
+local fGameSpeedModifier2 = GameInfo.GameSpeeds[Game.GetGameSpeedType()].ExperiencePercent / 100
 
 function OnTrainAddXP(iPlayer, iCity, iUnit, bGold, bFaith)
 	local pPlayer = Players[iPlayer]

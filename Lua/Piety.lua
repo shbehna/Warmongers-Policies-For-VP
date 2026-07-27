@@ -15,8 +15,8 @@ function OnUnitPrekill(playerID, unitID, unitType, iX, iY, bDelay, eKiller)
     local level = pUnit:GetLevel()
     local iEraModifier = math.max(pPlayer:GetCurrentEra(), 1)
 
-    local fGameSpeedModifierFaith = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].FaithPercent / 100
-    local fGameSpeedModifierCulture = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].CulturePercent / 100
+    local fGameSpeedModifierFaith = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].InstantYieldPercent / 100
+    local fGameSpeedModifierCulture = GameInfo.GameSpeeds[ Game.GetGameSpeedType() ].InstantYieldPercent / 100
 
     local faithAmount = math.floor(level ^ math.pi * fGameSpeedModifierFaith)
     local cultureAmount = math.floor(level ^ math.pi * fGameSpeedModifierCulture)

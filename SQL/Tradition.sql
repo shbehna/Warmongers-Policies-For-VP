@@ -2,13 +2,13 @@
 -- Tradition opener (POLICY_TRADITION)
 ------------------------------------------------
 
--- Now gain science when a citizen is born in the capital
-INSERT INTO Policy_YieldFromBirthCapital
+-- Now gain science when a citizen is born (capital-specific table removed in VP v5)
+INSERT INTO Policy_YieldFromBirth
 	(PolicyType, YieldType, Yield)
 VALUES
 	('POLICY_TRADITION', 'YIELD_SCIENCE', 15);
 
-INSERT INTO Policy_YieldFromBirthCapitalRetroactive
+INSERT INTO Policy_YieldFromBirthRetroactive
 	(PolicyType, YieldType, Yield)
 VALUES
 	('POLICY_TRADITION', 'YIELD_SCIENCE', 10);
@@ -52,9 +52,7 @@ SET
 	HappinessPerXPopulationGlobal = 15
 WHERE Type = 'POLICY_LEGALISM';
 
--- Remove flat science on buildings
-DELETE FROM Building_BuildingClassYieldChanges
-WHERE BuildingType IN ('BUILDING_PALACE_ASTROLOGER');
+-- BUILDING_PALACE_ASTROLOGER removed in VP v5; nothing to delete here
 
 ------------------------------------------------
 -- Justice (POLICY_ARISTOCRACY)
@@ -67,23 +65,13 @@ WHERE Type = 'POLICY_ARISTOCRACY';
 -- Remove flat production from cities. 
 DELETE FROM Policy_CityYieldChanges WHERE PolicyType = 'POLICY_ARISTOCRACY';
 
--- Gain GG and GA points from the capital engineer building when killing units
-INSERT INTO Building_YieldFromVictory
-	(BuildingType, YieldType, Yield)
-VALUES
-	('BUILDING_CAPITAL_ENGINEER', 'YIELD_GREAT_GENERAL_POINTS', 5),
-	('BUILDING_CAPITAL_ENGINEER', 'YIELD_GREAT_ADMIRAL_POINTS', 5);
+-- BUILDING_CAPITAL_ENGINEER removed in VP v5; GG/GA-on-kill for POLICY_ARISTOCRACY needs reimplementation
 
--- Add internal trace route yield changes
+-- Add internal trade route yield changes
 UPDATE Policies
 SET
 	InternalTradeRouteYieldModifier = 33
 WHERE Type = 'POLICY_ARISTOCRACY';
-
-UPDATE Buildings
-SET
-	AllowsProductionTradeRoutes = 1
-WHERE BuildingClass = 'BUILDINGCLASS_CAPITAL_ENGINEER';
 
 ------------------------------------------------
 -- Sovereignty (POLICY_OLIGARCHY)
@@ -119,4 +107,4 @@ INSERT INTO Buildings
 VALUES  ('BUILDING_WMP_TRADITION_DUMMY_2', 'BUILDINGCLASS_WMP_TRADITION_DUMMY_2', -1,   0,               NULL,       'TXT_KEY_BUILDINGCLASS_WMP_TRADITION_DUMMY_2', 'TXT_KEY_BUILDINGCLASS_WMP_TRADITION_DUMMY_2',	-1,          1,          0,            1,            5,                 'UCS_ATLAS', 0,             1);
 
 -- Remove flat bonus to monuments, gardens, and baths
-DELETE INTO Building_BuildingClassYieldChanges WHERE BuildingType = 'BUILDING_PALACE_TREASURY';
+DELETE FROM Building_BuildingClassYieldChanges WHERE BuildingType = 'BUILDING_PALACE_TREASURY';
