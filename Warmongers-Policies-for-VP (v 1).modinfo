@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Mod id="5bf9265d-4eda-4ad6-a1ba-066420eac4f3" version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="5bf9265d-4eda-4ad6-a1ba-066420eac4f3" version="2">
   <Properties>
     <Name>Warmongers-Policies-for-VP</Name>
     <Stability>Alpha</Stability>
@@ -24,65 +24,61 @@
   <References />
   <Blocks />
   <Files>
-    <File md5="88999CDAF4F3D88B557421481A087AF9" import="0">Lua/Aesthetics.lua</File>
-    <File md5="D41D8CD98F00B204E9800998ECF8427E" import="0">Lua/Honor.lua</File>
-    <File md5="BA867A8A598D42C7A8D6DEEAA0551D80" import="0">Lua/Liberty.lua</File>
-    <File md5="91DE1F24F2D8E306CB04B556709FC03C" import="0">Lua/Patronage.lua</File>
-    <File md5="6DE5CB477C741F56542C45F080E01A8A" import="0">Lua/Piety.lua</File>
-    <File md5="6DE5CB477C741F56542C45F080E01A8A" import="0">Lua/Tradition.lua</File>
-    <File md5="91DC98072D0AFB8F42B58F9C7B5E6C9B" import="0">Parking.txt</File>
-    <File md5="EC9926F076C45C44F2ADD2DD4E986EDA" import="0">SQL/Commerce.sql</File>
-    <File md5="6D16B2B41E44AD3531598BF434C38496" import="0">SQL/Exploration.sql</File>
-    <File md5="B2545EE460A3E9E3B47175FD497C9829" import="0">SQL/Honor.sql</File>
-    <File md5="F3A6F017CEAB2CEBBF1CD73620DD74CD" import="0">SQL/Liberty.sql</File>
-    <File md5="E07CFFDC8EEBE989C10BD06AEEF70F0B" import="0">SQL/Patronage.sql</File>
-    <File md5="6F595CBF48CB62F0618EA0EF2D703871" import="0">SQL/Rationalism.sql</File>
-    <File md5="D605FA2CF85A3E3BD1C910D8C82628DC" import="0">SQL/Tradition.sql</File>
-    <File md5="AC68EB13A79CF498880B1876FE3859B9" import="0">Text/en_US/NewTexts.xml</File>
-    <File md5="D41D8CD98F00B204E9800998ECF8427E" import="0">Text/en_US/PolicyText.sql</File>
+    <File md5="F0274289265D7D2E38E0D42CB5AFB30A" import="0">Lua/Artistry.lua</File>
+    <File md5="A7FADF0EC05B0FBEA39696A199166433" import="0">Lua/Fealty.lua</File>
+    <File md5="56CC0F84014140ECF3C386A919864AC8" import="0">Lua/Progress.lua</File>
+    <File md5="2EF6ADA4530501D2093651306359B528" import="0">Lua/Statecraft.lua</File>
+    <File md5="504B228FECF0081C9DDB5071D5C55F17" import="0">Lua/Tradition.lua</File>
+    <File md5="DE2569FB8D58ACBD26F8E57CD6930F10" import="0">SQL/Artistry.sql</File>
+    <File md5="0725997BEC682C38D96D64086AE6C496" import="0">SQL/Authority.sql</File>
+    <File md5="76B3403E2CD6029C3F68E16054FA1EE8" import="0">SQL/Fealty.sql</File>
+    <File md5="A68D90669FC046509163583CD0FDB016" import="0">SQL/Imperialism.sql</File>
+    <File md5="DC476F65F9D3FF1B453DA7A89087AABB" import="0">SQL/Industry.sql</File>
+    <File md5="29399300F47FE6FCDABBA8E5870C8384" import="0">SQL/Progress.sql</File>
+    <File md5="866A1CFF3CB8AADFD02A9E0F50F42FC6" import="0">SQL/Rationalism.sql</File>
+    <File md5="029D9371822C61D3AF8C4FE8E8C04D09" import="0">SQL/Statecraft.sql</File>
+    <File md5="8953003AD74BFC791ABBFE3F91FB69D5" import="0">SQL/Tradition.sql</File>
+    <File md5="B7D6ACF9CEFF50276B05EA055518CE75" import="0">Text/en_US/NewTexts.xml</File>
+    <File md5="3B97C4904BB594079B7799B6A83DF779" import="0">Text/en_US/PolicyText.sql</File>
   </Files>
   <Actions>
     <OnModActivated>
       <UpdateDatabase>Text/en_US/NewTexts.xml</UpdateDatabase>
       <UpdateDatabase>Text/en_US/PolicyText.sql</UpdateDatabase>
       <UpdateDatabase>SQL/Tradition.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Honor.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Liberty.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Patronage.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Piety.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Exploration.sql</UpdateDatabase>
-      <UpdateDatabase>SQL/Commerce.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Progress.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Authority.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Fealty.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Statecraft.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Artistry.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Imperialism.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/Industry.sql</UpdateDatabase>
       <UpdateDatabase>SQL/Rationalism.sql</UpdateDatabase>
     </OnModActivated>
   </Actions>
   <EntryPoints>
-    <EntryPoint type="InGameUIAddin" file="Lua/Aesthetics.lua">
-      <Name>Aesthetics</Name>
-      <Description>
-      </Description>
-    </EntryPoint>
-    <EntryPoint type="InGameUIAddin" file="Lua/Honor.lua">
-      <Name>Honor</Name>
-      <Description>
-      </Description>
-    </EntryPoint>
-    <EntryPoint type="InGameUIAddin" file="Lua/Patronage.lua">
-      <Name>Patronage</Name>
-      <Description>
-      </Description>
-    </EntryPoint>
-    <EntryPoint type="InGameUIAddin" file="Lua/Piety.lua">
-      <Name>Piety</Name>
-      <Description>
-      </Description>
-    </EntryPoint>
     <EntryPoint type="InGameUIAddin" file="Lua/Tradition.lua">
       <Name>Tradition</Name>
       <Description>
       </Description>
     </EntryPoint>
-    <EntryPoint type="InGameUIAddin" file="Lua/Liberty.lua">
-      <Name>Liberty</Name>
+    <EntryPoint type="InGameUIAddin" file="Lua/Progress.lua">
+      <Name>Progress</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Lua/Fealty.lua">
+      <Name>Fealty</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Lua/Statecraft.lua">
+      <Name>Statecraft</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Lua/Artistry.lua">
+      <Name>Artistry</Name>
       <Description>
       </Description>
     </EntryPoint>

@@ -1,33 +1,34 @@
 ------------------------------------------------
--- Opener (POLICY_RATIONALISM)
+-- Opener (POLICY_AESTHETICS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Secularism (POLICY_SECULARISM)
+-- Humanism (POLICY_CULTURAL_CENTERS)
+------------------------------------------------
+
+-- Units heal when a Great Work is created (Lua).
+
+------------------------------------------------
+-- Refinement (POLICY_FINE_ARTS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Mass Education (POLICY_HUMANISM)
+-- Heritage (POLICY_FLOURISHING_OF_ARTS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Liberalism (POLICY_SCIENTIFIC_REVOLUTION)
+-- National Treasure (POLICY_ARTISTIC_GENIUS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Emancipation (POLICY_SOVEREIGNTY)
+-- Cultural Exchange (POLICY_ETHICS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Employment Law (POLICY_FREE_THOUGHT)
-------------------------------------------------
-
-
-------------------------------------------------
--- Finisher (POLICY_RATIONALISM_FINISHER)
+-- Finisher (POLICY_AESTHETICS_FINISHER)
 ------------------------------------------------

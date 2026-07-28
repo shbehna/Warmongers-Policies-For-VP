@@ -1,33 +1,44 @@
 ------------------------------------------------
--- Opener (POLICY_RATIONALISM)
+-- Opener (POLICY_COMMERCE)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Secularism (POLICY_SECULARISM)
+-- Division of Labor (POLICY_TRADE_UNIONS)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Mass Education (POLICY_HUMANISM)
+-- Subsidies (POLICY_CARAVANS)
+------------------------------------------------
+
+-- Remove the instant Science when a building is constructed (moved to
+-- Colonialism).
+DELETE FROM Policy_YieldFromConstruction
+WHERE PolicyType = 'POLICY_CARAVANS';
+
+-- Add the monopoly bonuses (moved from Colonialism).
+UPDATE Policies
+SET
+	MonopolyModFlat = 5,
+	MonopolyModPercent = 5
+WHERE Type = 'POLICY_CARAVANS';
+
+------------------------------------------------
+-- Mercantilism (POLICY_MERCANTILISM)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Liberalism (POLICY_SCIENTIFIC_REVOLUTION)
+-- Entrepreneurship (POLICY_ENTREPRENEURSHIP)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Emancipation (POLICY_SOVEREIGNTY)
+-- Gold Standard (POLICY_PROTECTIONISM)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Employment Law (POLICY_FREE_THOUGHT)
-------------------------------------------------
-
-
-------------------------------------------------
--- Finisher (POLICY_RATIONALISM_FINISHER)
+-- Finisher (POLICY_COMMERCE_FINISHER)
 ------------------------------------------------

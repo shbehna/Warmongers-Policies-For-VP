@@ -1,33 +1,34 @@
 ------------------------------------------------
--- Opener (POLICY_RATIONALISM)
+-- Opener (POLICY_PATRONAGE)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Secularism (POLICY_SECULARISM)
+-- Foreign Service (POLICY_PHILANTHROPY)
+------------------------------------------------
+
+-- Influence when gifting a unit to a City-State (Lua).
+
+------------------------------------------------
+-- Trade Confederacy (POLICY_MERCHANT_CONFEDERACY)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Mass Education (POLICY_HUMANISM)
+-- Shadow Networks (POLICY_SCHOLASTICISM)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Liberalism (POLICY_SCIENTIFIC_REVOLUTION)
+-- Consulates (POLICY_CONSULATES)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Emancipation (POLICY_SOVEREIGNTY)
+-- Exchange Markets (POLICY_CULTURAL_DIPLOMACY)
 ------------------------------------------------
 
 
 ------------------------------------------------
--- Employment Law (POLICY_FREE_THOUGHT)
-------------------------------------------------
-
-
-------------------------------------------------
--- Finisher (POLICY_RATIONALISM_FINISHER)
+-- Finisher (POLICY_PATRONAGE_FINISHER)
 ------------------------------------------------

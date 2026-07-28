@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
 	<Language_en_US>
-		<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_DESC">
-			<Text>WMP - Tradition finisher dummy</Text>
-		</Row>
-		<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_TEXT">
-			<Text>WMP - Tradition finisher dummy</Text>
-		</Row>
-		<Row Tag="TXT_KEY_BUILDING_WMP_TRADITION_FINISHER_DUMMY_STRATEGY">
-			<Text>WMP - Tradition finisher dummy</Text>
+		<Row Tag="TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY">
+			<Text>WMP - Razed population marker</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_WMP_PLUNDERER">
 			<Text>Plunderer</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_WMP_PLUNDERER_HELP">
-			<Text>Gain XP from pillaging</Text>
+			<Text>Gains 5 Experience from pillaging.</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_WMP_MILITARY_ADVISOR">
-			<Text>Military Advisor</Text>
+		<Row Tag="TXT_KEY_PROMOTION_WMP_CRUSADER">
+			<Text>Crusader</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_WMP_MILITARY_ADVISOR_HELP">
-			<Text>When at war, gain great people points and XP when in allied city-state territory</Text>
+		<Row Tag="TXT_KEY_PROMOTION_WMP_CRUSADER_HELP">
+			<Text>Heals 5 additional HP per turn in enemy territory.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

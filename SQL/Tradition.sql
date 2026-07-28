@@ -1,94 +1,45 @@
 ------------------------------------------------
--- Tradition opener (POLICY_TRADITION)
+-- Opener (POLICY_TRADITION)
 ------------------------------------------------
 
--- Now gain science when a citizen is born (capital-specific table removed in VP v5)
-INSERT INTO Policy_YieldFromBirth
-	(PolicyType, YieldType, Yield)
-VALUES
-	('POLICY_TRADITION', 'YIELD_SCIENCE', 15);
-
-INSERT INTO Policy_YieldFromBirthRetroactive
-	(PolicyType, YieldType, Yield)
-VALUES
-	('POLICY_TRADITION', 'YIELD_SCIENCE', 10);
-
--- Yields from tech
-INSERT INTO Policy_YieldFromTech
-	(PolicyType, YieldType, Yield)
-VALUES
-	('POLICY_TRADITION', 'YIELD_CULTURE', 15);
-
-INSERT INTO Policy_YieldFromTechRetroactive
-	(PolicyType, YieldType, Yield)
-VALUES
-	('POLICY_TRADITION', 'YIELD_CULTURE', 10);
-
--- Scaler
-INSERT INTO Policy_YieldFromTech
-	(PolicyType, YieldType, Yield)
-SELECT
-	Type, 'YIELD_CULTURE', 10
-FROM Policies
-WHERE PolicyBranchType = 'POLICY_BRANCH_TRADITION';
-
--- Remove flat science scaler
-DELETE FROM Policy_CapitalYieldChanges WHERE PolicyType = 'POLICY_ARISTOCRACY' AND YieldType = 'YIELD_SCIENCE';
-DELETE FROM Policy_CapitalYieldChanges WHERE PolicyType = 'POLICY_OLIGARCHY' AND YieldType = 'YIELD_SCIENCE';
-DELETE FROM Policy_CapitalYieldChanges WHERE PolicyType = 'POLICY_LEGALISM' AND YieldType = 'YIELD_SCIENCE';
-DELETE FROM Policy_CapitalYieldChanges WHERE PolicyType = 'POLICY_LANDED_ELITE' AND YieldType = 'YIELD_SCIENCE';
-DELETE FROM Policy_CapitalYieldChanges WHERE PolicyType = 'POLICY_MONARCHY' AND YieldType = 'YIELD_SCIENCE';
-
--- Remove flat culture from pop
-DELETE FROM Policy_CapitalYieldPerPopChanges WHERE PolicyType = 'POLICY_TRADITION';
 
 ------------------------------------------------
 -- Ceremony (POLICY_LEGALISM)
 ------------------------------------------------
 
--- Add 1 happines per 15 pop
-UPDATE Policies
-SET
-	HappinessPerXPopulationGlobal = 15
-WHERE Type = 'POLICY_LEGALISM';
-
--- BUILDING_PALACE_ASTROLOGER removed in VP v5; nothing to delete here
 
 ------------------------------------------------
 -- Justice (POLICY_ARISTOCRACY)
 ------------------------------------------------
--- Remove 25% ranged combat bonus to garrisons. 
+
+-- Remove 25% ranged combat bonus to garrisoned cities (moved to Expertise).
 UPDATE Policies
 SET GarrisonedCityRangeStrikeModifier = 0
 WHERE Type = 'POLICY_ARISTOCRACY';
 
--- Remove flat production from cities. 
-DELETE FROM Policy_CityYieldChanges WHERE PolicyType = 'POLICY_ARISTOCRACY';
+-- Instant Food and Production in the Capital when razing a city (Lua).
+-- The dummy building below records the population of a captured city so the
+-- payout still knows it once razing completes, several turns and saves later.
+INSERT INTO BuildingClasses
+		(Type,										DefaultBuilding,						Description)
+VALUES	('BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'BUILDING_WMP_RAZE_POP_DUMMY',			'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY');
 
--- BUILDING_CAPITAL_ENGINEER removed in VP v5; GG/GA-on-kill for POLICY_ARISTOCRACY needs reimplementation
-
--- Add internal trade route yield changes
-UPDATE Policies
-SET
-	InternalTradeRouteYieldModifier = 33
-WHERE Type = 'POLICY_ARISTOCRACY';
+INSERT INTO Buildings
+		(Type,								BuildingClass,							Description,								Help,										Cost,	GoldMaintenance,	MinAreaSize,	NukeImmune,	ConquestProb,	NeverCapture,	HurryCostModifier,	IconAtlas,		PortraitIndex,	IsDummy)
+VALUES	('BUILDING_WMP_RAZE_POP_DUMMY',		'BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		-1,		0,					-1,				1,			0,				1,				5,					'UCS_ATLAS',	0,				1);
 
 ------------------------------------------------
 -- Sovereignty (POLICY_OLIGARCHY)
 ------------------------------------------------
 
-UPDATE Policies
-SET
-	PlotCultureExponentModifier = 0
-WHERE Type = 'POLICY_OLIGARCHY';
 
 ------------------------------------------------
 -- Majesty (POLICY_MONARCHY)
 ------------------------------------------------
 
--- GPP on kills (lua)
+-- Great Person Points in the Capital on kill (Lua).
 
--- Remove flat GPP modifier on palace gardens
+-- Remove the flat Great Person Rate modifier from the free Palace Garden.
 UPDATE Buildings
 SET GreatPeopleRateModifier = 0
 WHERE Type = 'BUILDING_PALACE_GARDEN';
@@ -97,14 +48,7 @@ WHERE Type = 'BUILDING_PALACE_GARDEN';
 -- Splendor (POLICY_LANDED_ELITE)
 ------------------------------------------------
 
--- Add dummy building for bonus from raze
-INSERT INTO BuildingClasses 
- 		(Type, 						 		 		DefaultBuilding, 						Description)
-VALUES	('BUILDINGCLASS_WMP_TRADITION_DUMMY_2', 		'BUILDING_WMP_TRADITION_DUMMY_2',			'TXT_KEY_BUILDINGCLASS_WMP_TRADITION_DUMMY_2');
 
-INSERT INTO Buildings 
-		(Type,                               BuildingClass,                           Cost, GoldMaintenance, PrereqTech, Description,                               Help,                                           MinAreaSize, NukeImmune, ConquestProb, NeverCapture, HurryCostModifier, IconAtlas,   PortraitIndex, IsDummy)
-VALUES  ('BUILDING_WMP_TRADITION_DUMMY_2', 'BUILDINGCLASS_WMP_TRADITION_DUMMY_2', -1,   0,               NULL,       'TXT_KEY_BUILDINGCLASS_WMP_TRADITION_DUMMY_2', 'TXT_KEY_BUILDINGCLASS_WMP_TRADITION_DUMMY_2',	-1,          1,          0,            1,            5,                 'UCS_ATLAS', 0,             1);
-
--- Remove flat bonus to monuments, gardens, and baths
-DELETE FROM Building_BuildingClassYieldChanges WHERE BuildingType = 'BUILDING_PALACE_TREASURY';
+------------------------------------------------
+-- Finisher (POLICY_TRADITION_FINISHER)
+------------------------------------------------
