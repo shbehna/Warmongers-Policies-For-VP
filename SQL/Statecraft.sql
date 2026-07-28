@@ -7,7 +7,11 @@
 -- Foreign Service (POLICY_PHILANTHROPY)
 ------------------------------------------------
 
--- Influence when gifting a unit to a City-State (Lua).
+-- Bonus Influence when gifting a unit to a City-State, on top of the
+-- Influence the gift is normally worth (same field Arsenal of Democracy uses).
+UPDATE Policies
+SET MilitaryUnitGiftExtraInfluence = 10
+WHERE Type = 'POLICY_PHILANTHROPY';
 
 ------------------------------------------------
 -- Trade Confederacy (POLICY_MERCHANT_CONFEDERACY)

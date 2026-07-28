@@ -88,7 +88,7 @@ WHERE Tag = 'TXT_KEY_POLICY_ORGANIZED_RELIGION_HELP';
 
 -- Foreign Service: gained Influence when gifting Units.
 UPDATE Language_en_US
-SET Text = '[COLOR_POSITIVE_TEXT]Foreign Service[ENDCOLOR][NEWLINE][ICON_BULLET]+10 [ICON_INFLUENCE] Influence when you gift a Unit to a [ICON_CITY_STATE] City-State.[NEWLINE][ICON_BULLET]Receive 100 [ICON_SPY_POINT] Spy Points.[NEWLINE][ICON_BULLET]Earn [ICON_DIPLOMAT] Great Diplomats 50% faster.[NEWLINE][ICON_BULLET]+50% Rewards from [ICON_CITY_STATE] City-State Quests.'
+SET Text = '[COLOR_POSITIVE_TEXT]Foreign Service[ENDCOLOR][NEWLINE][ICON_BULLET]+10 [ICON_INFLUENCE] Influence when you gift Units to [ICON_CITY_STATE] City-States.[NEWLINE][ICON_BULLET]Receive 100 [ICON_SPY_POINT] Spy Points.[NEWLINE][ICON_BULLET]Earn [ICON_DIPLOMAT] Great Diplomats 50% faster.[NEWLINE][ICON_BULLET]+50% Rewards from [ICON_CITY_STATE] City-State Quests.'
 WHERE Tag = 'TXT_KEY_POLICY_PHILANTHROPY_HELP';
 
 --------------------
