@@ -17,16 +17,7 @@ UPDATE Policies
 SET GarrisonedCityRangeStrikeModifier = 0
 WHERE Type = 'POLICY_ARISTOCRACY';
 
--- Instant Food and Production in the Capital when razing a city (Lua).
--- The dummy building below records the population of a captured city so the
--- payout still knows it once razing completes, several turns and saves later.
-INSERT INTO BuildingClasses
-		(Type,										DefaultBuilding,						Description)
-VALUES	('BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'BUILDING_WMP_RAZE_POP_DUMMY',			'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY');
-
-INSERT INTO Buildings
-		(Type,								BuildingClass,							Description,								Help,										Cost,	GoldMaintenance,	MinAreaSize,	NukeImmune,	ConquestProb,	NeverCapture,	HurryCostModifier,	IconAtlas,		PortraitIndex,	IsDummy)
-VALUES	('BUILDING_WMP_RAZE_POP_DUMMY',		'BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		-1,		0,					-1,				1,			0,				1,				5,					'UCS_ATLAS',	0,				1);
+-- Great Person Points in the Capital on kill (Lua).
 
 ------------------------------------------------
 -- Sovereignty (POLICY_OLIGARCHY)
@@ -37,12 +28,21 @@ VALUES	('BUILDING_WMP_RAZE_POP_DUMMY',		'BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'TX
 -- Majesty (POLICY_MONARCHY)
 ------------------------------------------------
 
--- Great Person Points in the Capital on kill (Lua).
-
 -- Remove the flat Great Person Rate modifier from the free Palace Garden.
 UPDATE Buildings
 SET GreatPeopleRateModifier = 0
 WHERE Type = 'BUILDING_PALACE_GARDEN';
+
+-- Instant Food and Production in the Capital when razing a city (Lua).
+-- The dummy building below records the population of a captured city so the
+-- payout still knows it once razing completes, several turns and saves later.
+INSERT INTO BuildingClasses
+		(Type,										DefaultBuilding,						Description)
+VALUES	('BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'BUILDING_WMP_RAZE_POP_DUMMY',			'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY');
+
+INSERT INTO Buildings
+		(Type,								BuildingClass,							Description,								Help,										Cost,	GoldMaintenance,	MinAreaSize,	NukeImmune,	ConquestProb,	NeverCapture,	HurryCostModifier,	IconAtlas,		PortraitIndex,	IsDummy)
+VALUES	('BUILDING_WMP_RAZE_POP_DUMMY',		'BUILDINGCLASS_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		'TXT_KEY_BUILDING_WMP_RAZE_POP_DUMMY',		-1,		0,					-1,				1,			0,				1,				5,					'UCS_ATLAS',	0,				1);
 
 ------------------------------------------------
 -- Splendor (POLICY_LANDED_ELITE)

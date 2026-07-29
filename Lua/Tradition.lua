@@ -14,7 +14,7 @@ function PositionCalculator(i1, i2)
 end
 
 ------------------------------------------------
--- Majesty (POLICY_MONARCHY)
+-- Justice (POLICY_ARISTOCRACY)
 ------------------------------------------------
 
 -- Great Person Points in the Capital on kill, worth 75% of the killed unit's
@@ -29,12 +29,12 @@ local tGreatPeople = {
 	{ Specialist = "SPECIALIST_CIVIL_SERVANT",	Icon = "[ICON_GREAT_DIPLOMAT]",	Name = "Great Diplomat" },
 }
 
-function Majesty_OnKillAwardGPP(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
+function Justice_OnKillAwardGPP(iAttackingPlayer, iAttackingUnit, iAttackerDamage, iAttackerFinalDamage, iAttackerMaxHP, iDefendingPlayer, iDefendingUnit, iDefenderDamage, iDefenderFinalDamage, iDefenderMaxHP, iInterceptingPlayer, iInterceptingUnit, iInterceptorDamage, iPlotX, iPlotY)
 	local pAttackingPlayer = Players[iAttackingPlayer]
 	local pDefendingPlayer = Players[iDefendingPlayer]
 
 	if pAttackingPlayer == nil or pDefendingPlayer == nil then return end
-	if not pAttackingPlayer:HasPolicy(ePolicyMajesty) then return end
+	if not pAttackingPlayer:HasPolicy(ePolicyJustice) then return end
 
 	local pDefendingUnit = pDefendingPlayer:GetUnitByID(iDefendingUnit)
 	if pDefendingUnit == nil or not pDefendingUnit:IsDead() then return end
@@ -57,18 +57,18 @@ function Majesty_OnKillAwardGPP(iAttackingPlayer, iAttackingUnit, iAttackerDamag
 	end
 end
 
-GameEvents.CombatEnded.Add(Majesty_OnKillAwardGPP)
+GameEvents.CombatEnded.Add(Justice_OnKillAwardGPP)
 
 ------------------------------------------------
--- Justice (POLICY_ARISTOCRACY)
+-- Majesty (POLICY_MONARCHY)
 ------------------------------------------------
 
 -- Razing a city takes several turns, and the city is gone by the time the
 -- payout fires, so stamp the captured city with a dummy building whose count
 -- is its population. That survives both the razing timer and save/reload.
-function Justice_OnCaptureRecordPopulation(iOldOwner, bIsCapital, iX, iY, iNewOwner, iPop, bConquest)
+function Majesty_OnCaptureRecordPopulation(iOldOwner, bIsCapital, iX, iY, iNewOwner, iPop, bConquest)
 	local pPlayer = Players[iNewOwner]
-	if pPlayer == nil or not pPlayer:HasPolicy(ePolicyJustice) then return end
+	if pPlayer == nil or not pPlayer:HasPolicy(ePolicyMajesty) then return end
 
 	local pCity = Map.GetPlot(iX, iY):GetPlotCity()
 	if pCity == nil then return end
@@ -76,13 +76,13 @@ function Justice_OnCaptureRecordPopulation(iOldOwner, bIsCapital, iX, iY, iNewOw
 	pCity:SetNumRealBuilding(eRazePopDummy, pCity:GetPopulation())
 end
 
-GameEvents.CityCaptureComplete.Add(Justice_OnCaptureRecordPopulation)
+GameEvents.CityCaptureComplete.Add(Majesty_OnCaptureRecordPopulation)
 
 -- Instant Food and Production in the Capital when the raze completes,
 -- 25 per population of the razed city. Does not scale with era.
-function Justice_OnRazeAwardYields(hexPos, iOldOwner, cityID, iNewOwner)
+function Majesty_OnRazeAwardYields(hexPos, iOldOwner, cityID, iNewOwner)
 	local pPlayer = Players[iNewOwner]
-	if pPlayer == nil or not pPlayer:HasPolicy(ePolicyJustice) then return end
+	if pPlayer == nil or not pPlayer:HasPolicy(ePolicyMajesty) then return end
 
 	local pCapital = pPlayer:GetCapitalCity()
 	if pCapital == nil then return end
@@ -106,4 +106,4 @@ function Justice_OnRazeAwardYields(hexPos, iOldOwner, cityID, iNewOwner)
 	end
 end
 
-Events.SerialEventCityDestroyed.Add(Justice_OnRazeAwardYields)
+Events.SerialEventCityDestroyed.Add(Majesty_OnRazeAwardYields)

@@ -27,7 +27,7 @@
     <File md5="F0274289265D7D2E38E0D42CB5AFB30A" import="0">Lua/Artistry.lua</File>
     <File md5="A7FADF0EC05B0FBEA39696A199166433" import="0">Lua/Fealty.lua</File>
     <File md5="56CC0F84014140ECF3C386A919864AC8" import="0">Lua/Progress.lua</File>
-    <File md5="504B228FECF0081C9DDB5071D5C55F17" import="0">Lua/Tradition.lua</File>
+    <File md5="405ACF4961EA862D4309B05762865636" import="0">Lua/Tradition.lua</File>
     <File md5="DE2569FB8D58ACBD26F8E57CD6930F10" import="0">SQL/Artistry.sql</File>
     <File md5="0725997BEC682C38D96D64086AE6C496" import="0">SQL/Authority.sql</File>
     <File md5="76B3403E2CD6029C3F68E16054FA1EE8" import="0">SQL/Fealty.sql</File>
@@ -36,9 +36,9 @@
     <File md5="29399300F47FE6FCDABBA8E5870C8384" import="0">SQL/Progress.sql</File>
     <File md5="866A1CFF3CB8AADFD02A9E0F50F42FC6" import="0">SQL/Rationalism.sql</File>
     <File md5="277625C06A912EFC1F228543305745C1" import="0">SQL/Statecraft.sql</File>
-    <File md5="8953003AD74BFC791ABBFE3F91FB69D5" import="0">SQL/Tradition.sql</File>
+    <File md5="7943770BD5543D6094DCDD7830BB84AD" import="0">SQL/Tradition.sql</File>
     <File md5="B7D6ACF9CEFF50276B05EA055518CE75" import="0">Text/en_US/NewTexts.xml</File>
-    <File md5="7BF4432A146F0564A18FE9D24157F95C" import="0">Text/en_US/PolicyText.sql</File>
+    <File md5="F99EE7E688D479DB01F281A172B70216" import="0">Text/en_US/PolicyText.sql</File>
   </Files>
   <Actions>
     <OnModActivated>

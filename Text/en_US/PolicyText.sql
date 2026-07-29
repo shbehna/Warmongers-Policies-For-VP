@@ -5,14 +5,14 @@
 -- Tradition
 --------------------
 
--- Justice: lost the garrison ranged strike, gained the raze payout.
+-- Justice: lost the garrison ranged strike, gained Great Person Points on kill.
 UPDATE Language_en_US
-SET Text = '[COLOR_POSITIVE_TEXT]Justice[ENDCOLOR][NEWLINE][ICON_BULLET]Razing a City grants +25 [ICON_FOOD] Food and +25 [ICON_PRODUCTION] Production in your [ICON_CAPITAL] Capital for each [ICON_CITIZEN] Citizen the City had when you captured it.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]{TXT_KEY_BUILDING_ROYAL_GUARDHOUSE}[ENDCOLOR] built in [ICON_CAPITAL] Capital (+3 [ICON_PRODUCTION] Production, +2 [ICON_STRENGTH] Defense, +50 Hit Points, +10% [ICON_SILVER_FIST] Military Supply from [ICON_CITIZEN] Population in all Cities, +1 [ICON_PRODUCTION] Production to all Councils and Forges, 1 [ICON_ENGINEER] Engineer Slot).'
+SET Text = '[COLOR_POSITIVE_TEXT]Justice[ENDCOLOR][NEWLINE][ICON_BULLET]Killing a Unit grants [ICON_GREAT_PEOPLE] Great Person Points of a random type in your [ICON_CAPITAL] Capital equal to 75% of the killed Unit''s [ICON_STRENGTH] Combat Strength.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]{TXT_KEY_BUILDING_ROYAL_GUARDHOUSE}[ENDCOLOR] built in [ICON_CAPITAL] Capital (+3 [ICON_PRODUCTION] Production, +2 [ICON_STRENGTH] Defense, +50 Hit Points, +10% [ICON_SILVER_FIST] Military Supply from [ICON_CITIZEN] Population in all Cities, +1 [ICON_PRODUCTION] Production to all Councils and Forges, 1 [ICON_ENGINEER] Engineer Slot).'
 WHERE Tag = 'TXT_KEY_POLICY_ARISTOCRACY_HELP';
 
--- Majesty: lost the Palace Garden Great Person Rate, gained Great Person Points on kill.
+-- Majesty: lost the Palace Garden Great Person Rate, gained the raze payout.
 UPDATE Language_en_US
-SET Text = '[COLOR_POSITIVE_TEXT]Majesty[ENDCOLOR][NEWLINE][ICON_BULLET]Killing a Unit grants [ICON_GREAT_PEOPLE] Great Person Points of a random type in your [ICON_CAPITAL] Capital equal to 75% of the killed Unit''s [ICON_STRENGTH] Combat Strength.[NEWLINE][ICON_BULLET]Specialists in the [ICON_CAPITAL] Capital consume half the normal amount of [ICON_FOOD] Food.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]{TXT_KEY_BUILDING_PALACE_GARDEN}[ENDCOLOR] built in [ICON_CAPITAL] Capital (+5 [ICON_FOOD] Food, -2 [ICON_HAPPINESS_3] Unhappiness from [ICON_URBANIZATION] Urbanization, 1 [ICON_GREAT_WORK] Great Work of Writing slot, 1 [ICON_WRITER] Writer Slot).'
+SET Text = '[COLOR_POSITIVE_TEXT]Majesty[ENDCOLOR][NEWLINE][ICON_BULLET]Razing a City grants +25 [ICON_FOOD] Food and +25 [ICON_PRODUCTION] Production in your [ICON_CAPITAL] Capital for each [ICON_CITIZEN] Citizen the City had when you captured it.[NEWLINE][ICON_BULLET]Specialists in the [ICON_CAPITAL] Capital consume half the normal amount of [ICON_FOOD] Food.[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]{TXT_KEY_BUILDING_PALACE_GARDEN}[ENDCOLOR] built in [ICON_CAPITAL] Capital (+5 [ICON_FOOD] Food, -2 [ICON_HAPPINESS_3] Unhappiness from [ICON_URBANIZATION] Urbanization, 1 [ICON_GREAT_WORK] Great Work of Writing slot, 1 [ICON_WRITER] Writer Slot).'
 WHERE Tag = 'TXT_KEY_POLICY_MONARCHY_HELP';
 
 --------------------
